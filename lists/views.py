@@ -23,5 +23,6 @@ def new_list(request):
 
 def add_item(request, list_id):
     list_ = List.objects.get(id=list_id)
+    # Update the database with a new item
     Item.objects.create(text=request.POST["item_text"], list=list_)
     return redirect(f"/lists/{list_.id}/")
